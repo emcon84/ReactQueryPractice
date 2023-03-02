@@ -36,7 +36,7 @@ h3 {
     transition: all .2s;
 }
 .loader {
-    animation: spin-animation 1.5s infinite linear;
+    animation: spin-animation 1.4s infinite linear;
     display: block;
 }
 
