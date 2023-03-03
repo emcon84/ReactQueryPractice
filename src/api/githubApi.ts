@@ -1,5 +1,4 @@
 import axios  from 'axios';
-///Api
 
 export const githubApi = axios.create({
     baseURL:'https://api.github.com/repos/facebook/react',
