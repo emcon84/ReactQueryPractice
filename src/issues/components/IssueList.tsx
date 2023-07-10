@@ -1,7 +1,13 @@
 
+import { FC } from 'react';
 import { IssueItem } from './IssueItem';
+import { Issues } from '../interfaces';
 
-export const IssueList = () => {  
+interface Props {
+    issues: Issues[];
+}
+
+export const IssueList: FC<Props> = ({ issues }) => {
 
 
     return (
@@ -21,11 +27,11 @@ export const IssueList = () => {
             </div>
             <div className="card-body text-dark">
                 {
-                    [1,2,3].map( issue => (
-                        <IssueItem key={issue} />
+                    issues.map(issue => (
+                        <IssueItem key={issue.id} issue={issue} />
                     ))
-                
-                }                
+
+                }
             </div>
         </div>
     )
