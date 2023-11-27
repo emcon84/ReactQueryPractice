@@ -4,23 +4,23 @@ import { Label } from "../interfaces";
 import { sleep } from "../../helpers/sleep";
 
 
-const getLabels = async():Promise<Label[]> => {
-    await sleep(2);
-    const { data } = await githubApi.get<Label[]>('/labels');  
-    return data;
-  }
+const getLabels = async (): Promise<Label[]> => {
+  await sleep(2);
+  const { data } = await githubApi.get<Label[]>('/labels?per_page=100');
+  return data;
+}
 
 
 export const useLabels = () => {
 
-    const labelsQuery = useQuery(
-        ['labels'],
-        getLabels,
-        {
-          staleTime: 1000 * 60 * 600,
-        }
-    
-      )
+  const labelsQuery = useQuery(
+    ['labels'],
+    getLabels,
+    {
+      staleTime: 1000 * 60 * 600,
+    }
 
-    return labelsQuery;
+  )
+
+  return labelsQuery;
 }
